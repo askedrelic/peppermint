@@ -2,6 +2,8 @@ import mechanize
 import cookielib
 import json
 
+username = ''
+password = ''
 u1 = 'https://online.citibank.com/US/JPS/portal/Home.do'
 
 br = mechanize.Browser()
@@ -38,9 +40,9 @@ print [x.attrs for x in br.forms()]
 
 br.select_form(nr=2)
 
-br['username'] = ''
+br['username'] = username
 
-br['password'] = ''
+br['password'] = password 
 
 br.submit()
 
