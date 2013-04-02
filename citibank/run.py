@@ -25,9 +25,9 @@ br.set_handle_referer(True)
 br.set_handle_robots(False)
 
 br.addheaders = [('User-agent',
-     'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US)'
-     'AppleWebKit/534.10 (KHTML, like Gecko)'
-     'Chrome/8.0.552.11 Safari/534.10')]
+                  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) '
+                  'AppleWebKit/537.31 (KHTML, like Gecko) '
+                  'Chrome/26.0.1410.43 Safari/537.31)')]
 
 # br.addheaders = [('User-agent',
 #      'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US)'
@@ -44,11 +44,9 @@ print br.geturl()
 
 print [x.attrs for x in br.forms()]
 
-
 br.select_form(nr=2)
 
 br['username'] = username
-
 br['password'] = password 
 
 br.submit()
