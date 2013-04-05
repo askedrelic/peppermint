@@ -1,9 +1,9 @@
 import json
 import re
 
-from common import Browser, getConfig
+from common import Browser, getConfig, getUserPass, getSecurityQuestions
 
-username, password = getConfig('citibank.com')
+username, password = getUserPass('citibank.com')
 br = Browser.make()
 
 u1 = 'https://online.citibank.com/US/JPS/portal/Home.do'
