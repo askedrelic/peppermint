@@ -1,42 +1,14 @@
 import mechanize
 import cookielib
 import json
-import ConfigParser
-import os
 import re
 
-cfg = ConfigParser.ConfigParser()
-cfg.read(os.path.normpath(os.path.abspath('.') + '/config.ini'))
+from common import Browser, getConfig
 
-username = cfg.get('citibank.com', 'username')
-password = cfg.get('citibank.com', 'password')
+username, password = getConfig('citibank.com')
+br = Browser.make()
 
 u1 = 'https://online.citibank.com/US/JPS/portal/Home.do'
-
-br = mechanize.Browser()
-
-cj = cookielib.LWPCookieJar()
-br.set_cookiejar(cj)
-
-br.set_handle_equiv(True)
-br.set_handle_gzip(True)
-br.set_handle_redirect(True)
-br.set_handle_referer(True)
-br.set_handle_robots(False)
-
-br.addheaders = [('User-agent',
-                  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) '
-                  'AppleWebKit/537.31 (KHTML, like Gecko) '
-                  'Chrome/26.0.1410.43 Safari/537.31)')]
-
-# br.addheaders = [('User-agent',
-#      'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US)'
-#      'AppleWebKit/534.10 (KHTML, like Gecko)'
-#      'Chrome/8.0.552.11 Safari/534.10'), ('X-Requested-With', 'XMLHttpRequest')]
-
-br.set_debug_http(True)
-br.set_debug_redirects(True)
-br.set_debug_responses(True)
 
 r1 = br.open(u1)
 
