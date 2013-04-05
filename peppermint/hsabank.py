@@ -50,7 +50,7 @@ br.addheaders = [('Origin', 'https://secure.hsabank.com')]
 if question in qa:
     print 'using config answer for security question'
     answer = qa[question]
-    print '%s : %s' % question , answer
+    print '%s : %s' % (question, answer)
 else:
     print 'MISSING config answer for security question'
     answer = raw_input('%s: ' % question)

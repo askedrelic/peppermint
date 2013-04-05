@@ -8,7 +8,8 @@ import os
 class Browser(object):
     @classmethod
     def make(self):
-        br = mechanize.Browser()
+        # br = mechanize.Browser(
+        br = mechanize.Browser(factory=mechanize.DefaultFactory(i_want_broken_xhtml_support=True))
 
         cj = cookielib.LWPCookieJar()
         br.set_cookiejar(cj)
