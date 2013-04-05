@@ -1,8 +1,7 @@
-import ConfigParser
-import os
 import re
+from BeautifulSoup import BeautifulSoup
 
-from common import Browser, getConfig
+from common import Browser, getConfig, getUserPass, getSecurityQuestions
 
 username, password = getConfig('citibank.com')
 br = Browser.make()

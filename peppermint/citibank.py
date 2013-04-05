@@ -1,5 +1,3 @@
-import mechanize
-import cookielib
 import json
 import re
 
